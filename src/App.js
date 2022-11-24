@@ -1,49 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
-import ClienteComponent from './ClienteComponent';
-import ProductoTipoClass from './ProductoTipoClass';
-import ComponenteProducto from './ComponenteProducto';
-import RelojComponent from './RelojComponent';
-import HoraFechaComponent from './HoraFechaComponent';
-import CoordinadorComponent from './CoordinadorComponent';
-import Example from './Hook';
-import UsarHookEstado from './Hook';
-import EjercicioHookColores from './HookExercise';
-import EjercicioUseEffect from './HookEffect copy';
-
-const BotonPersonalizado = ({tipo,text,...otros})=>
-{
-  const colores={
-    "primary":"#007bff",
-    "secondary":"#6c757d",
-    "success":"#28a745",
-    "danger":"#dc3545",
-    "waring":"#ffc107",
-    "info":"#17a2b8",
-    "light":"#f8f9fa",
-    "dark":"#343a40"
-  }
-  let estiloBoton={"backgroundColor":colores[tipo]}
-  
-  return <button {...otros} style={{...estiloBoton}}>{text}</button>
-  
-}
+import logo from "./logo.svg";
+import "./App.css";
+import ClienteComponent from "./ClienteComponent";
+import ProductoTipoClass from "./ProductoTipoClass";
+import ComponenteProducto from "./ComponenteProducto";
+import RelojComponent from "./RelojComponent";
+import HoraFechaComponent from "./HoraFechaComponent";
+import CoordinadorComponent from "./CoordinadorComponent";
+import Example from "./Hook";
+import UsarHookEstado from "./Hook";
+import EjercicioHookColores from "./HookExercise";
+import EjercicioUseEffect from "./HookEffect copy";
+import MostrarProductosAgregados from "./proyecto/Productos";
+import ProductoLista from "./proyecto/Productos";
+import { func } from "prop-types";
+import UsuarioContext from "./contexto/UsuarioContext";
+import UsuarioAutentificado from "./UsuarioAutentificadoConsumo";
+import UsuarioPresentaConsumo from "./UsuarioPresentaConsumo";
+import AumentarDisminuirReducer from "./proyecto/AumentarDisminuir";
+import UserReducerComponent from "./ColorHooks";
+import PutBasico from "./HttpEjercicio/HttpRequestColor";
 
 
-const Campo=({...propiedades})=>
-{
-  return <input {...propiedades}/>
-}
+const BotonPersonalizado = ({ tipo, text, ...otros }) => {
+  const colores = {
+    primary: "#007bff",
+    secondary: "#6c757d",
+    success: "#28a745",
+    danger: "#dc3545",
+    waring: "#ffc107",
+    info: "#17a2b8",
+    light: "#f8f9fa",
+    dark: "#343a40",
+  };
+  let estiloBoton = { backgroundColor: colores[tipo] };
+
+  return (
+    <button {...otros} style={{ ...estiloBoton }}>
+      {text}
+    </button>
+  );
+};
+
+const Campo = ({ ...propiedades }) => {
+  return <input {...propiedades} />;
+};
 
 function App() {
-  let direccionJuan={
-    callePrincipal:"Jose E",
-    calleSecundaria:"Baltazar C"
-  }
-  let direccionDavid={
-    callePrincipal:"Av. 10 de Agosto",
-    calleSecundaria:"Colón"
-  }
+  let direccionJuan = {
+    callePrincipal: "Jose E",
+    calleSecundaria: "Baltazar C",
+  };
+  let direccionDavid = {
+    callePrincipal: "Av. 10 de Agosto",
+    calleSecundaria: "Colón",
+  };
+
   return (
     <div className="App">
       {/* <h1>Hello World</h1> */}
@@ -61,7 +72,18 @@ function App() {
       {/* <RelojComponent/>  */}
       {/* <HoraFechaComponent/> */}
       {/* <CoordinadorComponent/> */}
-      <EjercicioUseEffect></EjercicioUseEffect>
+      {/* <EjercicioUseEffect></EjercicioUseEffect> */}
+      {/* <ProductoLista></ProductoLista> */}
+      {/* <UsuarioContext.Provider value={{nombre: "UsrFoo",codigo: "123", autentificado: true}}>
+        <ProductoLista>
+        </ProductoLista>
+        <UsuarioAutentificado/>
+        <UsuarioPresentaConsumo/>
+        
+      </UsuarioContext.Provider> */}
+      {/* <AumentarDisminuirReducer></AumentarDisminuirReducer>\
+      <UserReducerComponent></UserReducerComponent> */}
+  <PutBasico></PutBasico>
     </div>
   );
 }
